@@ -5,6 +5,6 @@ package xyz.klmn.github.multiModule.a;
  */
 public class A {
     public String doSomething(String text) {
-        return text.toUpperCase();
+        return text.toLowerCase();
     }
 }
