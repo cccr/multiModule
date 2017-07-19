@@ -45,7 +45,9 @@ do
 		range="$remote_sha..$local_sha"
 	fi
 
-  commits=( $(git rev-list "$range") )
+  # Only commits with current branch-name in message will be taken!
+  currentBranch=$(git branch | grep \* | cut -d ' ' -f2)
+  commits=( $(git rev-list "$range" --grep=$currentBranch) )
 
   for commit in ${commits[@]}
   do
